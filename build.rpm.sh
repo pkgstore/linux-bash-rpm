@@ -33,8 +33,8 @@ shift $(( OPTIND - 1 ))
 # -------------------------------------------------------------------------------------------------------------------- #
 
 # Apps.
-git=$( command -v git )
-copr=$( command -v copr-cli )
+git="$( command -v git )"
+copr="$( command -v copr-cli )"
 
 # Build.
 d_build="${HOME}/build"
