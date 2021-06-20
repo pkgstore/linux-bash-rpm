@@ -1,1 +1,3 @@
-# linux-bash-rpm
+# RPM Script
+
+Maintenance SRPM and RPM.
