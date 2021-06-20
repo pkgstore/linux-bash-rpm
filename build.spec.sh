@@ -15,7 +15,7 @@ while getopts "f:h" opt; do
       file="${OPTARG}"
       ;;
     h|*)
-      echo "-f [file]"
+      echo "-f '[file]'"
       exit 2
       ;;
   esac
