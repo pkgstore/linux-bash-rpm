@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 
 (( EUID == 0 )) &&
   { echo >&2 "This script should not be run as root!"; exit 1; }
