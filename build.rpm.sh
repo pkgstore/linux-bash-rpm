@@ -1,7 +1,6 @@
-#!/usr/bin/bash
+#!/usr/bin/bash -e
 
-(( EUID == 0 )) &&
-  { echo >&2 "This script should not be run as root!"; exit 1; }
+(( EUID == 0 )) && { echo >&2 "This script should not be run as root!"; exit 1; }
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # Get options.
