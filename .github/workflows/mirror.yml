@@ -1,18 +1,24 @@
-name: "Repository Mirror"
+name: "Repository"
 
 on:
   - push
+
+env:
+  domain_src: "${{ github.server_url }}"
+  repo: "${{ github.repository }}"
 
 jobs:
   mirror:
     runs-on: ubuntu-latest
     name: "Mirror"
+    env:
+      domain_dst: "https://gitlab.com"
     steps:
-      - uses: pkgstore/github-action-mirror@main
+      - uses: ghastore/mirror@main
         with:
-          source_repo: "https://github.com/${{ github.repository }}.git"
-          source_user: "${{ secrets.MIRROR_SOURCE_USER_GITHUB }}"
-          source_token: "${{ secrets.MIRROR_SOURCE_TOKEN_GITHUB }}"
-          target_repo: "https://gitlab.com/${{ github.repository }}.git"
-          target_user: "${{ secrets.MIRROR_TARGET_USER_GITLAB }}"
-          target_token: "${{ secrets.MIRROR_TARGET_TOKEN_GITLAB }}"
+          src_repo: "${{ env.domain_src }}/${{ env.repo }}.git"
+          src_user: "${{ secrets.BOT_GITHUB_NAME }}"
+          src_token: "${{ secrets.BOT_GITHUB_TOKEN }}"
+          dst_repo: "${{ env.domain_dst }}/${{ env.repo }}.git"
+          dst_user: "${{ secrets.BOT_GITLAB_NAME }}"
+          dst_token: "${{ secrets.BOT_GITLAB_TOKEN }}"
